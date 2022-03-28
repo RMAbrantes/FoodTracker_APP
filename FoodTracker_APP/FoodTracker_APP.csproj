@@ -16,4 +16,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Food\" />
+    <Folder Include="Pages\Category\" />
+    <Folder Include="Pages\Action\" />
+    <Folder Include="Pages\Meal\" />
+  </ItemGroup>
+
 </Project>

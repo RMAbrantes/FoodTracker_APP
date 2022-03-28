@@ -1,0 +1,87 @@
+﻿Descrição do Sistema
+O sistema a implementar baseia-se no famoso livro “Eat to Beat Disease” do doutor e cientista
+William Li.
+Uma das premissas do livro é que há alimentos com características benéficas para a saúde e que
+se enquadram em 5 principais sistemas de defesa, sendo eles:
+Angiogénese: É o processo de formação de vasos sanguíneos que transportam oxigênio e
+nutrientes pelo nosso corpo. Chá verde, café, tomate e queijos, por exemplo, podem auxiliar na
+proteção desse sistema.
+Regeneração: Quase 750 mil células-troncos são responsáveis pela regeneração do nosso
+corpo e estão em órgãos como: pulmões, intestino e principalmente na medula óssea. Alimentos
+como chocolate amargo, chá preto e batata roxa auxiliam no processo e evitam ainda o
+crescimento de células cancerígenas.
+Microbioma: Aproximadamente 40 trilhões de bactérias atuam em benefício da saúde,
+controlando o sistema imunológico, melhorando a angiogênese e produzindo hormônios que
+agem nas funções cerebrais. A microbiota é estimulada ao ingerirmos alimentos como queijos,
+leites e pães de fermentação natural, por exemplo.
+Proteção do DNA: Além de ser nosso código genético, o DNA também atua como um sistema
+de defesa. Suas ações de reparo atuam, por exemplo, sobre lesões ocasionadas por radiação,
+produtos químicos, estresse e má alimentação.
+Imunidade: Influenciado pelo intestino, o sistema imunológico pode se ajustar para atacar e
+agir contra diversos patógenos e auxiliar no combate a doenças autoimunes. Alimentos como
+amoras, nozes, vegetais escuros e alimentos ricos em minerais e vitaminas auxiliam na
+regeneração e na manutenção dessa defesa.
+Fonte: https://pronutrition.com.br/alimentacao-saudavel-a-melhor-arma-para-prevenir-doencas/
+Como forma de criar bons hábitos alimentares, o autor criou uma estratégia (framework 5x5x5)
+para que o corpo desenvolva a própria habilidade de se curar e regenerar, consumindo alimentos
+saudáveis pertencentes aos sistemas de defesa listados acima.
+Esta framework consiste em incluir pelo menos 5 alimentos que suportem os benefícios dos 5
+grupos de defesa listados acima em até 5 refeições diárias.
+Durante a reunião para recolha e análise de requisitos com todos os stakeholders, esboçou-se
+uma versão simplificada do DER que deverá servir de fundação para a criação do projeto, e que
+poderá visualizar abaixo.
+
+
+
+O DER simplificado, permite criar uma base de desenvolvimento comum que deve ser estendida
+com base nos requisitos definidos abaixo.
+A aplicação deverá ter funcionalidades que só o administrador pode realizar e outras disponíveis
+aos utilizadores da aplicação.
+
+
+
+Requisitos App:
+RA1: Deve ser possível importar uma lista de alimentos pré-compilada a partir de um ficheiro
+.csv. Tal é importante para que se possa inserir centenas de produtos de forma completamente
+automatizada.
+RA2: Devem ser criadas operações de CRUD para Ação, Alimento e Categoria;
+- Cada Ação corresponde a um dos 5 sistemas de defesa;
+- Categoria (Carne, Fruta, Vegetais, etc.)
+RA3: A app deve disponibilizar um dashboard(só visível para o Admin) onde seja possível visualizar o n.º total de
+utilizadores e refeições registadas, os 10 produtos mais consumidos e o top 5 dos utilizadores
+mais ativos, i.e. que registaram mais refeições.
+
+
+Requisitos Utilizador:
+(O Admin vai estar já criado por nós com um Login próprio)
+RU1: O utilizador deverá conseguir marcar alimentos como favoritos. Guarde também a data/hora
+em que a operação foi feita.
+RU2: O utilizador deverá conseguir incluir determinados alimentos na blacklist. Estes alimentos
+nunca devem ser sugeridos pela app. Guarde também a data/hora em que o alimento foi
+adicionado à lista.
+RU3: O utilizador deverá poder marcar as várias refeições ao longo do dia. Cada refeição inclui 1
+ou mais alimentos e também a porção de cada um deles, pelo que deve identificar a medida
+(gramas, unidades) e o valor associado, e.g. 1 unidade ou 100 gramas.
+É também necessário guardar o início e o fim da refeição.
+RU4: O utilizador só poderá usar a app após criar um registo e autenticar-se corretamente.
+RU4: O utilizador deverá poder aceder a uma área com informação sobre o sucesso da
+incorporação da framework 5x5x5 na sua vida durante um determinado período temporal.
+RU5: O utilizador deverá ter uma área onde lhe sejam sugeridos alimentos de forma a completar
+com sucesso os critérios da framework 5x5x5 no dia corrente.
+RU6: O utilizador deverá ter acesso a uma área com estatísticas sobre os períodos de jejum ao
+longo de um determinado período.
+
+
+
+Dicas e sugestões para a resolução
+• Desenvolva o projeto usando código limpo, bem indentado e fazendo uso amplo do
+princípio de responsabilidade única;
+• Use comentários quando for estritamente necessário, privilegiando a escrita de código
+claro e sem ambiguidade;
+• Use o conceito de repositórios (Repository/Service Pattern) para organizar melhor o seu
+código;
+• Use o mecanismo de exceções quando tal se justifique;
+• Crie um repositório no GitHub para registar todas as alterações que for implementando ao
+longo do desenvolvimento do projeto;
+• Para detalhes omissos de implementação ou que não estejam claramente definidos, use o
+seu bom-senso para resolver o problema e explique as suas opções;
