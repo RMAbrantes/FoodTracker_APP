@@ -3,7 +3,7 @@
 public class Blacklist
 {
     public int BlacklistId { get; set; }
-    public int UserId { get; set; } //FK
-    public int FoodId { get; set; } //FK
+    public int UserId { get; set; } //tornar FK
+    public int FoodId { get; set; } //tornar FK
     public DateTime DateHour { get; set; } 
 }
