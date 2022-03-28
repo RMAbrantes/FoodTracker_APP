@@ -85,3 +85,18 @@ código;
 longo do desenvolvimento do projeto;
 • Para detalhes omissos de implementação ou que não estejam claramente definidos, use o
 seu bom-senso para resolver o problema e explique as suas opções;
+
+
+Critérios de classificação
+O trabalho desenvolvido será classificado de acordo com os seguintes pesos:
+Critério																					Peso
+Representação do modelo e DB context														15%
+Implementação de funcionalidades – App														30%
+Implementação de funcionalidades - Utilizador												40%
+Uso do git com o histórico de todos os commits realizados desde o início do projeto			5%
+Código limpo e relatório do projeto															10%
+Funcionalidades extra (+10%)																10%
+																					Total: 110%
+
+
+							ENTREGA DIA 03/04/2022
