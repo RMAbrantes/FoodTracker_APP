@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace FoodTracker_APP.Data.Entities;
+﻿namespace FoodTracker_APP.Data.Entities;
 
 public class Meal
 {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
+﻿
 namespace FoodTracker_APP.Pages;
 
 public class PrivacyModel : PageModel

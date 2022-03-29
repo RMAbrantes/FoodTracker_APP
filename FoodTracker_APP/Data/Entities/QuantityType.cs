@@ -1,9 +1,8 @@
-﻿namespace FoodTracker_APP.Data.Entities
-{
-    public class QuantityType
-    {
-        public int Id { get; set; }
+﻿namespace FoodTracker_APP.Data.Entities;
 
-        public string Type { get; set; }
-    }
+public class QuantityType
+{
+    public int Id { get; set; }
+
+    public string Type { get; set; }
 }

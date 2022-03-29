@@ -1,10 +1,4 @@
-﻿using FoodTracker_APP.Data.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Action = FoodTracker_APP.Data.Entities.Action;
-
-
-namespace FoodTracker_APP.Data;
+﻿namespace FoodTracker_APP.Data;
 
 public class FoodTrackerDbContext : IdentityDbContext<User>
 {
