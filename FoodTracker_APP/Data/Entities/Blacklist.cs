@@ -2,8 +2,8 @@
 
 public class Blacklist
 {
-    public int BlacklistId { get; set; }
-    public int UserId { get; set; } //tornar FK
-    public int FoodId { get; set; } //tornar FK
+    public int Id { get; set; }
+    public Food Food { get; set; }
+    public User User { get; set; }
     public DateTime DateHour { get; set; } 
 }

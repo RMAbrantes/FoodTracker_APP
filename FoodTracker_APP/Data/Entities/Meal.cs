@@ -1,10 +1,19 @@
-﻿namespace FoodTracker_APP.Data.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FoodTracker_APP.Data.Entities;
 
 public class Meal
 {
-    public int MealId { get; set; }
-    public string UserID { get; set; }  //FK
-    public DateTime StartMeal { get; set; }
-    public DateTime EndMeal { get; set; }
+    public int Id { get; set; }
 
+    [Required]
+    public string Name { get; set; }
+
+    public User User { get; set; }  
+
+    [Required]
+    public DateTime StartMeal { get; set; }
+
+    [Required]
+    public DateTime EndMeal { get; set; }
 }

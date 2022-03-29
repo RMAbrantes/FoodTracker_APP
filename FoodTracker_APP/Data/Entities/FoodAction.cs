@@ -2,10 +2,11 @@
 
 public class FoodAction
 {
-    public int FoodActionId { get; set; }
+    public Action Action { get; set; }
+    public Food Food { get; set; }
 
-    public int ActionId { get; set; }   //FK
+    public int ActionId { get; set; }   
 
-    public int FoodId { get; set; } //FK
+    public int FoodId { get; set; } 
     
 }

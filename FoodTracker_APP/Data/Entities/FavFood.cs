@@ -2,8 +2,8 @@
 
 public class FavFood
 {
-    public int FavFoodId { get; set; }
-    public int UserId { get; set; } //FK
-    public int FoodId { get; set; } //FK
+    public int Id { get; set; }
+    public Food Food { get; set; }
+    public User User { get; set; }
     public DateTime DateHour { get; set; }
 }

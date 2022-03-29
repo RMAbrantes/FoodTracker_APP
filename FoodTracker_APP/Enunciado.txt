@@ -94,7 +94,7 @@ Representação do modelo e DB context														15%
 Implementação de funcionalidades – App														30%
 Implementação de funcionalidades - Utilizador												40%
 Uso do git com o histórico de todos os commits realizados desde o início do projeto			5%
-Código limpo e relatório do projeto															10%
+Código limpo e relatório do projeto	(usar Markdown - text editor)														10%
 Funcionalidades extra (+10%)																10%
 																					Total: 110%
 
