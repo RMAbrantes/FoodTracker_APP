@@ -1,4 +1,4 @@
-﻿/*namespace FoodTracker_APP.Data;
+﻿namespace FoodTracker_APP.Data;
 
 public class CsvFile
 {
@@ -61,4 +61,4 @@ public class CsvFile
             }
         }
     }
-}*/
+}
