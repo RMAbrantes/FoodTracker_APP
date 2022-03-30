@@ -1,4 +1,4 @@
-﻿namespace FoodTracker_APP.Data;
+﻿/*namespace FoodTracker_APP.Data;
 
 public class CsvFile
 {
@@ -9,11 +9,11 @@ public class CsvFile
         _context = context;
     }
 
-    public void Import()
+    public void ImportCsv()
     {
-        string path = @"C:\Users\nuno_\source\repos\FoodTracker_APP\ETBDDb.csv";
+        string csvpath = @"C:\Users\nuno_\source\repos\FoodTracker_APP\ETBDDb.csv";
 
-        string[] lines = File.ReadAllLines(path);
+        string[] lines = File.ReadAllLines(csvpath);
 
         for (int i = 1; i < lines.Length; i++)
         {
@@ -61,4 +61,4 @@ public class CsvFile
             }
         }
     }
-}
+}*/
