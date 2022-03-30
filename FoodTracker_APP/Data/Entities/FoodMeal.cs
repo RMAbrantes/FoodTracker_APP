@@ -6,9 +6,9 @@ public class FoodMeal
     public Food Foods { get; set; }
     public Meal Meals { get; set; }
 
-    public int FoodId { get; set; } //FK
+    public int FoodId { get; set; } 
 
-    public int MealId { get; set; } //FK
+    public int MealId { get; set; } 
 
     [Required]
     public QuantityType QuantityTypes { get; set; }
