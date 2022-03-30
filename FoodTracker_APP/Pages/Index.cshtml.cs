@@ -1,5 +1,4 @@
-﻿
-namespace FoodTracker_APP.Pages;
+﻿namespace FoodTracker_APP.Pages;
 
 public class IndexModel : PageModel
 {

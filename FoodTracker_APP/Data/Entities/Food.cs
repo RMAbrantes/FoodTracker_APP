@@ -10,8 +10,7 @@ public class Food
     public string Name { get; set; } //tem de ser FoodName ou pode ser só Name?
 
     [Required]
-    public Category Category { get; set; } //FK
-    
+    public Category Category { get; set; } //FK    
 }
 
 

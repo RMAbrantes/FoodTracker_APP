@@ -1,4 +1,3 @@
-
 namespace FoodTracker_APP.Pages;
 
 [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

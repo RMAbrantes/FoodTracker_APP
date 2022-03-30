@@ -1,6 +1,6 @@
 ﻿namespace FoodTracker_APP.Data;
 
-public class FoodTrackerDbContext : IdentityDbContext//<User>
+public class FoodTrackerDbContext : IdentityDbContext<User>
 {
     public DbSet<Action> Actions { get; set; }
     public DbSet<Blacklist> Blacklists { get; set; }
