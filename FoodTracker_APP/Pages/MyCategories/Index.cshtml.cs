@@ -2,9 +2,9 @@
 
 public class IndexModel : PageModel
 {
-    private readonly FoodTracker_APP.Data.FoodTrackerDbContext _context;
+    private readonly FoodTrackerDbContext _context;
 
-    public IndexModel(FoodTracker_APP.Data.FoodTrackerDbContext context)
+    public IndexModel(FoodTrackerDbContext context)
     {
         _context = context;
     }

@@ -17,7 +17,6 @@ public class IndexModel : PageModel
 
         csvFile.ImportCsv();
 
-        Food = await _context.Foods.ToListAsync();
-        //.Include(f => f.Category)
+        Food = await _context.Foods.ToListAsync();        
     }
 }
