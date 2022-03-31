@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodTracker_APP.Migrations
 {
     [DbContext(typeof(FoodTrackerDbContext))]
-    [Migration("20220330182608_FirstFixErrors")]
-    partial class FirstFixErrors
+    [Migration("20220331184810_file")]
+    partial class file
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

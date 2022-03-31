@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodTracker_APP.Migrations
 {
-    public partial class FirstFixErrors : Migration
+    public partial class file : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
