@@ -54,9 +54,7 @@ public class RegisterModel : PageModel
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-
-        //Aqui vou acrescentar que ao fazer o Registo, há alguns requisitos:
-        //E depois é necessário acrescentar também no Register.cshtml
+                
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "First Name")]
