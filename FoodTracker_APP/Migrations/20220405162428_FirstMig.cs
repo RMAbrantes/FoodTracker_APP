@@ -1,6 +1,6 @@
 ﻿namespace FoodTracker_APP.Migrations;
 
-public partial class RenameTableNames : Migration
+public partial class FirstMig : Migration
 {
     protected override void Up(MigrationBuilder migrationBuilder)
     {
@@ -76,6 +76,8 @@ public partial class RenameTableNames : Migration
                 Height = table.Column<decimal>(type: "decimal(5)", nullable: false),
                 BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                 Age = table.Column<int>(type: "int", nullable: false),
+                UsernameChangeLimit = table.Column<int>(type: "int", nullable: false),
+                ProfilePicture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                 UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                 NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                 Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
