@@ -35,7 +35,16 @@ public class RegisterModel : PageModel
     //implementation/definition of the InputModel that have the properties 
     public class InputModel
     {
-        
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress] //Validations (based on email address)
         [Display(Name = "Email")]
@@ -52,18 +61,7 @@ public class RegisterModel : PageModel
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
-
-                
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        public string ConfirmPassword { get; set; }        
     }
 
 
@@ -77,9 +75,20 @@ public class RegisterModel : PageModel
     {
         returnUrl ??= Url.Content("~/");
         ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
         if (ModelState.IsValid)
         {
-            var user = CreateUser();
+            MailAddress address = new MailAddress(Input.Email);
+            string userName = address.User;
+            var user = new User
+            {
+                UserName = userName,
+                Email = Input.Email,
+                FirstName = Input.FirstName,
+                LastName = Input.LastName
+            };
+
+            CreateUser();
 
             await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
             await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
