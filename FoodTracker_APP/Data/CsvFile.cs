@@ -1,64 +1,63 @@
-﻿namespace FoodTracker_APP.Data
+﻿namespace FoodTracker_APP.Data;
+
+public class CsvFile
 {
-    public class CsvFile
+    private readonly FoodTrackerDbContext _context;
+
+    public CsvFile(FoodTrackerDbContext context)
     {
-        private readonly FoodTrackerDbContext _context;
+        _context = context;
+    }
 
-        public CsvFile(FoodTrackerDbContext context)
+    public void ImportCsv()
+    {
+        string csvpath = @"C:\Users\nuno_\source\repos\FoodTracker_APP\Files\CsvComma.csv";
+
+        string[] lines = File.ReadAllLines(csvpath);
+
+        for (int i = 1; i < lines.Length; i++)
         {
-            _context = context;
-        }
+            string[] columns = lines[i].Split(',');
 
-        public void ImportCsv()
-        {
-            string csvpath = @"C:\Users\nuno_\source\repos\FoodTracker_APP\Files\CsvComma.csv";
+            Category category;
+            Action action;
 
-            string[] lines = File.ReadAllLines(csvpath);
+            var categoryName = columns[1];
 
-            for (int i = 1; i < lines.Length; i++)
+            if (!_context.Categories.Any(x => x.Name.Equals(categoryName)))
             {
-                string[] columns = lines[i].Split(',');
+                category = new Category() { Name = categoryName };
 
-                Category category;
-                Action action;
+            }
+            else
+            {
+                category = _context.Categories.FirstOrDefault(x => x.Name.Equals(categoryName));
+            }
 
-                var categoryName = columns[1];
+            var food = new Food() { Name = columns[0], Category = category };
 
-                if (!_context.Categories.Any(x => x.Name.Equals(categoryName)))
+            _context.Foods.Add(food);
+            _context.SaveChanges();
+
+            var actionsNames = columns[2].Trim().Split(';');
+
+            foreach (var actionName in actionsNames)
+            {
+
+                if (!_context.Actions.Any(x => x.Name.Equals(actionName)))
                 {
-                    category = new Category() { Name = categoryName };
-
+                    action = new Action() { Name = actionName };
+                    _context.Actions.Add(action);
+                    _context.SaveChanges();
                 }
                 else
                 {
-                    category = _context.Categories.FirstOrDefault(x => x.Name.Equals(categoryName));
+                    action = _context.Actions.FirstOrDefault(x => x.Name.Equals(actionName));
                 }
 
-                var food = new Food() { Name = columns[0], Category = category };
-
-                _context.Foods.Add(food);
+                var foodAction = new FoodAction() { Action = action, Food = food, ActionId = action.Id, FoodId = food.Id };
+                _context.FoodActions.Add(foodAction);
                 _context.SaveChanges();
-
-                var actionsNames = columns[2].Trim().Split(';');
-
-                foreach (var actionName in actionsNames)
-                {
-
-                    if (!_context.Actions.Any(x => x.Name.Equals(actionName)))
-                    {
-                        action = new Action() { Name = actionName };
-                        _context.Actions.Add(action);
-                        _context.SaveChanges();
-                    }
-                    else
-                    {
-                        action = _context.Actions.FirstOrDefault(x => x.Name.Equals(actionName));
-                    }
-
-                    var foodAction = new FoodAction() { Action = action, Food = food, ActionId = action.Id, FoodId = food.Id };
-                    _context.FoodActions.Add(foodAction);
-                    _context.SaveChanges();
-                }
             }
         }
     }
