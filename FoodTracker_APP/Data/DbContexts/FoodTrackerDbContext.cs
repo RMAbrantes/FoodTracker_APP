@@ -1,7 +1,7 @@
 ﻿namespace FoodTracker_APP.Data;
 
 public class FoodTrackerDbContext : IdentityDbContext<User>
-{
+{    
     public DbSet<Action> Actions { get; set; }
     public DbSet<Blacklist> Blacklists { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -10,7 +10,7 @@ public class FoodTrackerDbContext : IdentityDbContext<User>
     public DbSet<FoodAction> FoodActions { get; set; }
     public DbSet<FoodMeal> FoodMeals { get; set; }
     public DbSet<Meal> Meals { get; set; }
-    public DbSet<User> IdentityUsers { get; set; }
+    public DbSet<User> Users { get; set; }
     public DbSet<QuantityType> QuantityTypes { get; set; }
 
     public FoodTrackerDbContext(DbContextOptions<FoodTrackerDbContext> options)
@@ -34,12 +34,10 @@ public class FoodTrackerDbContext : IdentityDbContext<User>
         //FK
         modelBuilder.Entity<FoodAction>().HasKey(fa => new { fa.ActionId, fa.FoodId });
         modelBuilder.Entity<FoodMeal>().HasKey(fm => new { fm.FoodId, fm.MealId });
-    
 
-    
-        
+
         modelBuilder.HasDefaultSchema("Identity");
-        modelBuilder.Entity<IdentityUser>(entity =>
+        modelBuilder.Entity<User>(entity =>
         {
             entity.ToTable(name: "User");
         });
