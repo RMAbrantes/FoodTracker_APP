@@ -29,7 +29,7 @@ public class LoginModel : PageModel
     public class InputModel
     {
         [Required]
-        [EmailAddress]
+        [Display(Name = "Email / Username")]
         public string Email { get; set; }
 
 
@@ -42,6 +42,7 @@ public class LoginModel : PageModel
         public bool RememberMe { get; set; }
     }
 
+    
     public async Task OnGetAsync(string returnUrl = null)
     {
         if (!string.IsNullOrEmpty(ErrorMessage))
@@ -59,20 +60,7 @@ public class LoginModel : PageModel
         ReturnUrl = returnUrl;
     }
 
-    /*
-    public bool IsValidEmail(string emailaddress)
-    {
-        try
-        {
-            MailAddress m = new MailAddress(emailaddress);
-            return true;
-        }
-        catch (FormatException)
-        {
-            return false;
-        }
-    }*/
-
+    
     public async Task<IActionResult> OnPostAsync(string returnUrl = null)
     {
         returnUrl ??= Url.Content("~/");
