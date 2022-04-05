@@ -11,8 +11,6 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
-        Categories = new SelectList(_context.Categories, "Id", "Name");
-
         return Page();
     }
 
@@ -27,11 +25,6 @@ public class CreateModel : PageModel
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()
     {
-        Food.Category = _context.Categories.Where(c => c.Id == SelectedCategoryId).FirstOrDefault();        
-        ModelState.Clear();
-        TryValidateModel(Food);
-        TryValidateModel(Food.Category);
-
         if (!ModelState.IsValid)
         {
             return Page();
