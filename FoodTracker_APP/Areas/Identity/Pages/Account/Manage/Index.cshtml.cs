@@ -12,18 +12,14 @@ public class IndexModel : PageModel
         _userManager = userManager;
         _signInManager = signInManager;
     }
-
     
     public string Username { get; set; }
-
     
     [TempData]
     public string StatusMessage { get; set; }
-
     
     [BindProperty]
     public InputModel Input { get; set; }
-
 
     public class InputModel
     {
@@ -51,6 +47,7 @@ public class IndexModel : PageModel
         var firstName = user.FirstName;
         var lastName = user.LastName;
         var profilePicture = user.ProfilePicture;
+
         Username = userName;
         Input = new InputModel
         {

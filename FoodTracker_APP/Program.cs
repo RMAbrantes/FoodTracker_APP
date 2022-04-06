@@ -11,6 +11,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<FoodTrackerDbContext>();
 
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

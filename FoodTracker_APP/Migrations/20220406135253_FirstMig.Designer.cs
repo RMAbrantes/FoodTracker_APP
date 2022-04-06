@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodTracker_APP.Migrations
 {
     [DbContext(typeof(FoodTrackerDbContext))]
-    [Migration("20220405162428_FirstMig")]
+    [Migration("20220406135253_FirstMig")]
     partial class FirstMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -80,6 +80,7 @@ public class RegisterModel : PageModel
         {
             MailAddress address = new MailAddress(Input.Email);
             string userName = address.User;
+            
             var user = new User
             {
                 UserName = userName,
