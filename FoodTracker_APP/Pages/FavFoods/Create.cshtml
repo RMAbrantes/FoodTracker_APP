@@ -1,22 +1,22 @@
 ﻿@page
-@model FoodTracker_APP.Pages.MyActions.CreateModel
+@model FoodTracker_APP.Pages.FavFoods.CreateModel
 
 @{
-    ViewData["Title"] = "Create";    
+    ViewData["Title"] = "Create";
 }
 
 <h1>Create</h1>
 
-<h4>Action</h4>
+<h4>FavFood</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Action.Name" class="control-label"></label>
-                <input asp-for="Action.Name" class="form-control" />
-                <span asp-validation-for="Action.Name" class="text-danger"></span>
+                <label asp-for="FavFood.DateHour" class="control-label"></label>
+                <input asp-for="FavFood.DateHour" class="form-control" />
+                <span asp-validation-for="FavFood.DateHour" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

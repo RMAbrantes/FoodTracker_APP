@@ -34,10 +34,7 @@ public class IndexModel : PageModel
 
         [Phone]
         [Display(Name = "Phone number")]
-        public string PhoneNumber { get; set; }
-
-        [Display(Name = "Profile Picture")]
-        public byte[] ProfilePicture { get; set; }
+        public string PhoneNumber { get; set; }        
     }
 
     private async Task LoadAsync(User user)
@@ -46,16 +43,14 @@ public class IndexModel : PageModel
         var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
         var firstName = user.FirstName;
         var lastName = user.LastName;
-        var profilePicture = user.ProfilePicture;
-
+        
         Username = userName;
         Input = new InputModel
         {
             PhoneNumber = phoneNumber,
             Username = userName,
             FirstName = firstName,
-            LastName = lastName,
-            ProfilePicture = profilePicture
+            LastName = lastName            
         };
     }
 

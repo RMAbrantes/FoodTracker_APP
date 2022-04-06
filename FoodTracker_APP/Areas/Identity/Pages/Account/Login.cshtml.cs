@@ -1,6 +1,5 @@
 ﻿namespace FoodTracker_APP.Areas.Identity.Pages.Account;
 
-[AllowAnonymous]
 public class LoginModel : PageModel
 {
     private readonly UserManager<User> _userManager;
@@ -32,11 +31,9 @@ public class LoginModel : PageModel
         [Display(Name = "Email / Username")]
         public string Email { get; set; }
 
-
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }

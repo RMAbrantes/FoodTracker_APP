@@ -9,9 +9,11 @@ public class Meal
 
     public User User { get; set; }  
 
+    [Display(Name = "Start Meal")]
     [Required]
     public DateTime StartMeal { get; set; }
 
+    [Display(Name = "End Meal")]
     [Required]
     public DateTime EndMeal { get; set; }
 }

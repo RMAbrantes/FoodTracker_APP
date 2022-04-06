@@ -1,5 +1,4 @@
-﻿
-namespace FoodTracker_APP.Data.Entities;
+﻿namespace FoodTracker_APP.Data.Entities;
 
 public class Action
 {
@@ -7,11 +6,6 @@ public class Action
 
     [DisplayName("Action Name")]
     [Required]
-    public string Name { get; set; }  
-    //tem de ser ActionName ou pode ser só Name
+    public string Name { get; set; }      
 }
 
-
-/*[Required]
-
-public List<Food> Foods { get; set; }*/
