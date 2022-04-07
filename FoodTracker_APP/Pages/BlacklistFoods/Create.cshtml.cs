@@ -24,7 +24,7 @@ public class CreateModel : PageModel
         {
             return Page();
         }
-
+                
         _context.Blacklists.Add(Blacklist);
         await _context.SaveChangesAsync();
 

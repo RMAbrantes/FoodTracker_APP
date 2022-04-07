@@ -5,14 +5,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Blacklist</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add new Food to your Blacklist: </a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Blacklist[0].Name)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Blacklist[0].DateHour)
             </th>
@@ -23,11 +26,12 @@
 @foreach (var item in Model.Blacklist) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DateHour)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                @Html.DisplayFor(modelItem => item.DateHour)
+            </td>
+            <td>                
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

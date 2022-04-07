@@ -5,7 +5,7 @@ public class Category
 {
     public int Id { get; set; }
 
-    [DisplayName("Category Name")]
+    [Display(Name = "Category Name")]
     [Required]
     public string Name { get; set; }
 }

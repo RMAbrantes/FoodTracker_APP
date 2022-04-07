@@ -8,7 +8,6 @@ public class ConfirmEmailModel : PageModel
     {
         _userManager = userManager;
     }
-
     
     [TempData]
     public string StatusMessage { get; set; }

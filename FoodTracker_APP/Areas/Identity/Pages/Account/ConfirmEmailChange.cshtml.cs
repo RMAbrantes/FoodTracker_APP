@@ -10,8 +10,7 @@ public class ConfirmEmailChangeModel : PageModel
         _userManager = userManager;
         _signInManager = signInManager;
     }
-
-    
+        
     [TempData]
     public string StatusMessage { get; set; }
 

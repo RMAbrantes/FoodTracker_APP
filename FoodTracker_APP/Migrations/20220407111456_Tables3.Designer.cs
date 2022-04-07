@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodTracker_APP.Migrations
 {
     [DbContext(typeof(FoodTrackerDbContext))]
-    [Migration("20220406135253_FirstMig")]
-    partial class FirstMig
+    [Migration("20220407111456_Tables3")]
+    partial class Tables3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,10 @@ namespace FoodTracker_APP.Migrations
 
                     b.Property<int?>("FoodId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -100,6 +104,10 @@ namespace FoodTracker_APP.Migrations
 
                     b.Property<int?>("FoodId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -276,9 +284,6 @@ namespace FoodTracker_APP.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("ProfilePicture")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -288,9 +293,6 @@ namespace FoodTracker_APP.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<int>("UsernameChangeLimit")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("Weight")
                         .HasColumnType("decimal(5)");

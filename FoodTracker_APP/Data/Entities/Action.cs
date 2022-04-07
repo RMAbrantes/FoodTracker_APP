@@ -4,7 +4,7 @@ public class Action
 {
     public int Id { get; set; }
 
-    [DisplayName("Action Name")]
+    [Display(Name = "Action Name")]
     [Required]
     public string Name { get; set; }      
 }

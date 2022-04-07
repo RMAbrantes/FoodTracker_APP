@@ -4,12 +4,12 @@ public class Food
 {    
     public int Id { get; set; }
 
-    [DisplayName("Food Name")]
+    [Display(Name = "Food Name")]
     [Required]
-    public string Name { get; set; } //tem de ser FoodName ou pode ser só Name?
+    public string Name { get; set; } 
 
     [Required]
-    public Category Category { get; set; } //FK    
+    public Category Category { get; set; }     
 }
 
 
