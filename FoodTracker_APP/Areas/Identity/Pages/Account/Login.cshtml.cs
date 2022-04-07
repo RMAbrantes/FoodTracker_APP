@@ -3,15 +3,13 @@
 public class LoginModel : PageModel
 {
     private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
-    private readonly IEmailSender _emailSender;
+    private readonly SignInManager<User> _signInManager;    
     private readonly ILogger<LoginModel> _logger;
 
-    public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, UserManager<User> userManager, IEmailSender emailSender)
+    public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, UserManager<User> userManager)
     {
         _userManager = userManager;
-        _signInManager = signInManager;
-        _emailSender = emailSender;
+        _signInManager = signInManager;        
         _logger = logger;
     }
     
@@ -38,6 +36,19 @@ public class LoginModel : PageModel
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
+
+    public bool IsValidEmail(string emailAddress)
+    {
+        try
+        {
+            var mailAddress = new MailAddress(emailAddress);
+            return true;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+    }
     
     public async Task OnGetAsync(string returnUrl = null)
     {
@@ -63,7 +74,18 @@ public class LoginModel : PageModel
         ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
         if (ModelState.IsValid)
-        {
+        {            
+            var userName = Input.Email;
+            if (IsValidEmail(userName))
+            {
+                var user = await _userManager.FindByEmailAsync(Input.Email);
+
+                if (user != null)
+                {
+                    userName = user.UserName;
+                }
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, set lockoutOnFailure: true
             var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);

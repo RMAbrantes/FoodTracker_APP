@@ -9,6 +9,6 @@ public class Blacklist
     [Display(Name = "Food Name")]     
     public string Name { get; set; }
 
-    [Display(Name ="Date Created")]
-    public DateTime DateHour { get; set; } 
+    [Display(Name = "Date Created")]
+    public DateTime DateHour { get; set; } = DateTime.Now;
 }

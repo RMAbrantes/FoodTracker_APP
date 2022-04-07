@@ -32,16 +32,14 @@ public class RegisterModel : PageModel
         
     public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
-    //implementation/definition of the InputModel that have the properties 
+    //implementation/definition of the InputModel that has the properties 
     public class InputModel
     {
-        [Required]
-        [DataType(DataType.Text)]
+        [Required]        
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
-        [DataType(DataType.Text)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
@@ -49,21 +47,18 @@ public class RegisterModel : PageModel
         [EmailAddress] //Validations (based on email address)
         [Display(Name = "Email")]
         public string Email { get; set; }
-
         
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
-
        
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }        
     }
-
 
     public async Task OnGetAsync(string returnUrl = null)
     {
@@ -78,19 +73,9 @@ public class RegisterModel : PageModel
 
         if (ModelState.IsValid)
         {
-            MailAddress address = new MailAddress(Input.Email);
-            string userName = address.User;
-            
-            var user = new User
-            {
-                UserName = userName,
-                Email = Input.Email,
-                FirstName = Input.FirstName,
-                LastName = Input.LastName
-            };
-
-            CreateUser();
-
+            var user = CreateUser();
+            user.FirstName = Input.FirstName;
+            user.LastName = Input.LastName;
             await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
             await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
             
@@ -99,7 +84,7 @@ public class RegisterModel : PageModel
             if (result.Succeeded)
             {
                 _logger.LogInformation("User created a new account with password.");
-
+                                
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

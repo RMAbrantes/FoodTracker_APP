@@ -10,5 +10,5 @@ public class FavFood
     public string Name { get; set; }
 
     [Display(Name = "Date Created")]
-    public DateTime DateHour { get; set; }
+    public DateTime DateHour { get; set; } = DateTime.Now;
 }

@@ -43,8 +43,8 @@ public class IndexModel : PageModel
         var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
         var firstName = user.FirstName;
         var lastName = user.LastName;
+        Username = userName;        
         
-        Username = userName;
         Input = new InputModel
         {
             PhoneNumber = phoneNumber,
@@ -69,6 +69,28 @@ public class IndexModel : PageModel
     public async Task<IActionResult> OnPostAsync()
     {
         var user = await _userManager.GetUserAsync(User);
+
+        var userName = user.UserName;
+        var firstName = user.FirstName;
+        var lastName = user.LastName;
+
+        if (Input.FirstName != firstName)
+        {
+            user.FirstName = Input.FirstName;
+            await _userManager.UpdateAsync(user);
+        }
+        if (Input.LastName != lastName)
+        {
+            user.LastName = Input.LastName;
+            await _userManager.UpdateAsync(user);
+        }
+
+        if (Input.Username != userName)
+        {
+            user.UserName = Input.Username;
+            await _userManager.UpdateAsync(user);
+        }
+
         if (user == null)
         {
             return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -89,19 +111,6 @@ public class IndexModel : PageModel
                 StatusMessage = "Unexpected error when trying to set phone number.";
                 return RedirectToPage();
             }
-        }
-
-        var firstName = user.FirstName;
-        var lastName = user.LastName;
-        if (Input.FirstName != firstName)
-        {
-            user.FirstName = Input.FirstName;
-            await _userManager.UpdateAsync(user);
-        }
-        if (Input.LastName != lastName)
-        {
-            user.LastName = Input.LastName;
-            await _userManager.UpdateAsync(user);
         }
 
         await _signInManager.RefreshSignInAsync(user);

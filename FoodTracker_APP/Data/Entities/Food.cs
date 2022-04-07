@@ -3,9 +3,9 @@
 public class Food
 {    
     public int Id { get; set; }
-
-    [Display(Name = "Food Name")]
+        
     [Required]
+    [Display(Name = "Food Name")]
     public string Name { get; set; } 
 
     [Required]
