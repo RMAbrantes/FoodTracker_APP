@@ -32,7 +32,7 @@
                 @Html.DisplayFor(modelItem => item.DateHour)
             </td>
             <td>                
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.Id"onclick="return confirm("Are you sure you want to Delete the item from the Blacklist?")">Delete</a>
             </td>
         </tr>
 }
