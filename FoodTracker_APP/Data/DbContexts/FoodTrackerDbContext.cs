@@ -30,6 +30,8 @@ public class FoodTrackerDbContext : IdentityDbContext<User>
         modelBuilder.Entity<FoodMeal>().Property(p => p.Quantity).HasColumnType("decimal(5)");
         modelBuilder.Entity<User>().Property(p => p.Height).HasColumnType("decimal(5)");
         modelBuilder.Entity<User>().Property(p => p.Weight).HasColumnType("decimal(5)");
+        modelBuilder.Entity<User>().Property(p => p.FirstName).HasMaxLength(255);
+        modelBuilder.Entity<User>().Property(p => p.LastName).HasMaxLength(255);
 
         //FK
         modelBuilder.Entity<FoodAction>().HasKey(fa => new { fa.ActionId, fa.FoodId });

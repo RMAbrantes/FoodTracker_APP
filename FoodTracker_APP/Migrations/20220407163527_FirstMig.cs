@@ -75,8 +75,8 @@ namespace FoodTracker_APP.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Weight = table.Column<decimal>(type: "decimal(5)", nullable: false),
                     Height = table.Column<decimal>(type: "decimal(5)", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
