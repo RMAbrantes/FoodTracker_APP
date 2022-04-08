@@ -8,12 +8,12 @@ public class Meal
     public string Name { get; set; }
 
     public User User { get; set; }  
-
+        
+    [Required]
     [Display(Name = "Start Meal")]
-    [Required]
     public DateTime StartMeal { get; set; }
-
-    [Display(Name = "End Meal")]
+        
     [Required]
+    [Display(Name = "End Meal")]
     public DateTime EndMeal { get; set; }
 }

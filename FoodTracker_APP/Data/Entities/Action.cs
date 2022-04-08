@@ -3,9 +3,9 @@
 public class Action
 {
     public int Id { get; set; }
-
-    [Display(Name = "Action Name")]
+        
     [Required]
+    [Display(Name = "Action Name")]
     public string Name { get; set; }      
 }
 
