@@ -9,6 +9,7 @@ builder.Services.AddDbContext<FoodTrackerDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<FoodTrackerDbContext>();
 
 
@@ -37,5 +38,13 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await SeedData.SeedRolesAsync(roleManager);
+    await SeedData.SeedAdminAsync(userManager, roleManager);
+}
 
 app.Run();
