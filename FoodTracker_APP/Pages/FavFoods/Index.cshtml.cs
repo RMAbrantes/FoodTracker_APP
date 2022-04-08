@@ -12,7 +12,8 @@ public class IndexModel : PageModel
     public IList<FavFood> FavFood { get;set; }
 
     public async Task OnGetAsync()
-    {        
-        FavFood = await _context.FavFoods.ToListAsync();
+    {
+        var user = await _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefaultAsync();
+        FavFood = await _context.FavFoods.Where(b => b.User == user).ToListAsync();
     }
 }

@@ -13,6 +13,9 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Blacklist = await _context.Blacklists.ToListAsync();
+        
+        var user = await _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefaultAsync();
+
+        Blacklist = await _context.Blacklists.Where(b=> b.User == user).ToListAsync();
     }
 }
