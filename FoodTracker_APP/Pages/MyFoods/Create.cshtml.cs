@@ -27,14 +27,29 @@ public class CreateModel : PageModel
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
+        if (FoodExists(Food.Name, SelectedCategoryId))
         {
-            return Page();
+            //return BadRequest($"Food {Food.Name} already exists in that category");
+            return OnGet();
         }
+
+        //link Categorie
+        Food.Category = _context.Categories.Where(x => x.Id == SelectedCategoryId).FirstOrDefault();
 
         _context.Foods.Add(Food);
         await _context.SaveChangesAsync();
 
+        //TODO não percebo pq fica inválido o Modelo...
+        //if (!ModelState.IsValid)
+        //{
+        //    return OnGet();
+        //}
+
         return RedirectToPage("./Index");
+    }
+
+    private bool FoodExists(string name, int categorie)
+    {
+        return _context.Foods.Where(x => x.Name.Equals(name) && x.Category.Id == categorie).Count() > 0;
     }
 }
