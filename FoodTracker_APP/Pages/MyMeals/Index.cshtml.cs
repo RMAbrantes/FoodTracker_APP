@@ -13,6 +13,8 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        Meal = await _context.Meals.ToListAsync();
+        var user = await _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefaultAsync();
+
+        Meal = await _context.Meals.Where(m => m.User == user).ToListAsync();
     }
 }

@@ -44,6 +44,8 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.Run();
+
 using (var scope = app.Services.CreateScope())
 {
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
@@ -51,5 +53,3 @@ using (var scope = app.Services.CreateScope())
     await SeedData.SeedRolesAsync(roleManager);
     await SeedData.SeedAdminAsync(userManager, roleManager);
 }
-
-app.Run();

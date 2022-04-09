@@ -11,9 +11,9 @@ public class Meal
         
     [Required]
     [Display(Name = "Start Meal")]
-    public DateTime StartMeal { get; set; }
+    public DateTime StartMeal { get; set; } //= DateTime.Now;
         
     [Required]
     [Display(Name = "End Meal")]
-    public DateTime EndMeal { get; set; }
+    public DateTime EndMeal { get; set; } //= DateTime.Now;
 }

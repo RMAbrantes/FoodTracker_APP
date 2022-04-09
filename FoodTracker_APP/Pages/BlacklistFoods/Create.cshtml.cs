@@ -10,15 +10,12 @@ public class CreateModel : PageModel
     }
 
     public IActionResult OnGet()
-    {
-       
+    {       
         return Page();
     }
 
     [BindProperty]
     public Blacklist Blacklist { get; set; }
-  
-
 
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()

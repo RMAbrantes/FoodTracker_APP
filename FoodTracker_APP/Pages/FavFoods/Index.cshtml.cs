@@ -14,6 +14,7 @@ public class IndexModel : PageModel
     public async Task OnGetAsync()
     {
         var user = await _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefaultAsync();
-        FavFood = await _context.FavFoods.Where(b => b.User == user).ToListAsync();
+
+        FavFood = await _context.FavFoods.Where(ff => ff.User == user).ToListAsync();
     }
 }

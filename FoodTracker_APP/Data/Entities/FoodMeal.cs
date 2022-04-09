@@ -17,18 +17,4 @@ public class FoodMeal
 
 }
 
-/*
-[Required]
-public PortionType PortionTypes { get; set; }
-
-[Required]
-public decimal Portion { get; set; }
-
-[Required]
-public QuantityType QuantityTypes { get; set; }
-
-
-[Required]
-public decimal Quantity { get; set; }*/
-
 
