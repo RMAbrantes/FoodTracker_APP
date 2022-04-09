@@ -11,6 +11,8 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
+        Categories = new SelectList(_context.Categories, nameof(Category.Id), nameof(Category.Name));
+
         return Page();
     }
 

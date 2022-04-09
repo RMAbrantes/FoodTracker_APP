@@ -3,20 +3,22 @@
 public class CreateModel : PageModel
 {
     private readonly FoodTrackerDbContext _context;
-
+    
     public CreateModel(FoodTrackerDbContext context)
     {
         _context = context;
     }
 
     public IActionResult OnGet()
-    {
+    {        
         return Page();
     }
 
     [BindProperty]
     public FavFood FavFood { get; set; }
 
+    public SelectList Foods;
+        
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()
     {

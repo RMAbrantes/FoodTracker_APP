@@ -2,6 +2,7 @@
 
 public class FoodMeal
 {
+    //public FoodMealId { get; set; }
     public Food Foods { get; set; }
     public Meal Meals { get; set; }
 

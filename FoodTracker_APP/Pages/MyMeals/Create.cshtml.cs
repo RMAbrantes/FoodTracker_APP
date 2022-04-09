@@ -3,6 +3,7 @@
 public class CreateModel : PageModel
 {
     private readonly FoodTrackerDbContext _context;
+    
 
     public CreateModel(FoodTrackerDbContext context)
     {
@@ -11,11 +12,17 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
+        Foods = new SelectList(_context.Foods, nameof(Food.Id), nameof(Food.Name));
+        Categories = new SelectList(_context.Categories, nameof(Category.Id), nameof(Category.Name));
         return Page();
     }
 
     [BindProperty]
     public Meal Meal { get; set; }
+
+    public SelectList Foods { get; set; }
+
+    public SelectList Categories { get; set; }
 
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()
