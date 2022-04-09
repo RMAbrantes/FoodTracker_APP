@@ -20,7 +20,7 @@ public class IndexModel : PageModel
         foreach (var meal in Meal)
         {
             var FoodMealTemp = await _context.FoodMeals.Where(fm => fm.MealId == meal.Id).ToListAsync();
-            meal.Foodmeals = FoodMealTemp.ToArray(); 
+            //meal.Foodmeals = FoodMealTemp.ToArray(); 
         }         
     }
 }

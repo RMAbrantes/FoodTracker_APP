@@ -15,8 +15,5 @@ public class Meal
         
     [Required]
     [Display(Name = "End Meal")]
-    public DateTime EndMeal { get; set; }
-
-    public FoodMeal[] Foodmeals { get; set; }
-   
+    public DateTime EndMeal { get; set; }   
 }

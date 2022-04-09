@@ -33,7 +33,7 @@ public class CreateModel : PageModel
             return OnGet();
         }
 
-        //link Categorie
+        //link Category
         Food.Category = _context.Categories.Where(x => x.Id == SelectedCategoryId).FirstOrDefault();
 
         _context.Foods.Add(Food);
