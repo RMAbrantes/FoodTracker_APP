@@ -12,12 +12,6 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<FoodTrackerDbContext>();
 
-/*builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<FoodTrackerDbContext>()
-    .AddDefaultUI()
-    .AddDefaultTokenProviders();*/
-
-
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
