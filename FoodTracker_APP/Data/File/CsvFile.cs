@@ -20,7 +20,7 @@ public class CsvFile
         {            
             string[] columns = lines[i].Split(',');
             var foodtemp =  _context.Foods.Where(f => f.Name == columns[0]).FirstOrDefault();
-            //vai ver se já existe aquele alimento carregado
+            //ver se já existe aquele alimento carregado
             if(foodtemp== null)
             {
                 Category category;

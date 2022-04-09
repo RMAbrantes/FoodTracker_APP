@@ -12,7 +12,7 @@ public class CreateModel : PageModel
     public IActionResult OnGet()
     {
         Categories = new SelectList(_context.Categories, nameof(Category.Id), nameof(Category.Name));
-
+        //Actions = new SelectList(_context.Actions, nameof(Action.Id), nameof(Action.Name));
         return Page();
     }
 
@@ -20,6 +20,7 @@ public class CreateModel : PageModel
     public Food Food { get; set; }
 
     public SelectList Categories { get; set; }
+    //public SelectList Actions { get; set; }
 
     [BindProperty]
     public int SelectedCategoryId { get; set; }
@@ -35,21 +36,15 @@ public class CreateModel : PageModel
 
         //link Category
         Food.Category = _context.Categories.Where(x => x.Id == SelectedCategoryId).FirstOrDefault();
-
+        
         _context.Foods.Add(Food);
         await _context.SaveChangesAsync();
-
-        //TODO não percebo pq fica inválido o Modelo...
-        //if (!ModelState.IsValid)
-        //{
-        //    return OnGet();
-        //}
 
         return RedirectToPage("./Index");
     }
 
-    private bool FoodExists(string name, int categorie)
+    private bool FoodExists(string name, int category)
     {
-        return _context.Foods.Where(x => x.Name.Equals(name) && x.Category.Id == categorie).Count() > 0;
+        return _context.Foods.Where(x => x.Name.Equals(name) && x.Category.Id == category).Count() > 0;
     }
 }
