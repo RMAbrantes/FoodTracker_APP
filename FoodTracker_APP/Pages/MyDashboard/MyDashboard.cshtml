@@ -5,23 +5,30 @@
 }
 
 <h4>Dashboard!</h4>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CountUsers)
-            </th>                
-        </tr>
-    </thead>
-    <tbody>
-
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.CountUsers)
-            </td>           
             
-        </tr>
+<dl class="row">
+     <dt class="col-sm-2">
+         @Html.DisplayNameFor(model => model.TOPActiveUsers)
+         </dt>
+         <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TOPActiveUsers)
+        </dd>
+        </dl>
 
-    </tbody>
-</table>
+<dl class="row">
+     <dt class="col-sm-2">
+         @Html.DisplayNameFor(model => model.TOPFoods)
+         </dt>
+         <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TOPFoods)
+        </dd>
+        </dl>
+
+ <dl class="row">
+     <dt class="col-sm-2">
+         @Html.DisplayNameFor(model => model.CountMeals)
+         </dt>
+         <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CountMeals)
+        </dd>
+        </dl>

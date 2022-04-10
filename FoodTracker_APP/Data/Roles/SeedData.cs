@@ -10,6 +10,7 @@ public static class SeedData
 
     public static async Task SeedAdminAsync(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
     {
+        //Seed Default User
         var adminUser = new User
         {
             FirstName = "Raquel",

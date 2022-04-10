@@ -84,7 +84,9 @@ public class RegisterModel : PageModel
             if (result.Succeeded)
             {
                 _logger.LogInformation("User created a new account with password.");
-                                
+                //add efature to allow any newly registered user automatically gets assigned to the basic role
+                await _userManager.AddToRoleAsync(user, Roles.BasicUser.ToString());                
+
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
