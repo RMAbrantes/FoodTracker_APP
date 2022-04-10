@@ -10,7 +10,9 @@ public class CreateModel : PageModel
     }
 
     public IActionResult OnGet()
-    {        
+    {
+        Foods = new SelectList(_context.Foods, nameof(Category.Id), nameof(Category.Name));
+
         return Page();
     }
 

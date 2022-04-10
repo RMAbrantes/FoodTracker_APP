@@ -23,6 +23,7 @@ public class CreateModel : PageModel
 
     [BindProperty]
     public int[] SelectedFoods { get; set; }
+
     public SelectList Foods { get; set; }
 
     public SelectList Categories { get; set; }

@@ -18,7 +18,11 @@
                 <input asp-for="FavFood.Name" class="form-control" />
                 <span asp-validation-for="FavFood.Name" class="text-danger"></span>
                 </div>
-            
+                <div class="form-group">
+                <label asp-for="Foods" class="control-label"></label>
+                @*<input asp-for="Foods" class="form-control" />*@
+                <select asp-for="Foods" class ="form-control" asp-items="Model.Foods"></select>                
+            </div>            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary btn-block" />
             </div>
