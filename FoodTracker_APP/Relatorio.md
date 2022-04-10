@@ -1,6 +1,7 @@
 ﻿# Relatório do Projecto:
 
 Criação das tabelas:
+https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/foreignkey-attribute
 1. Action → Id; Name 
 2. Blacklist → Id; UserId; FoodId; DateTime(DateHour)
 3. Category → Id; CategoryName
