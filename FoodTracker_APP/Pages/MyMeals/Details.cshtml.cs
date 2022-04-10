@@ -30,7 +30,7 @@ public class DetailsModel : PageModel
         }
 
         FoodName = await _context.FoodMeals.Include(ic => ic.Foods).Where(fa => fa.MealId == id).ToListAsync();
-        FoodsOfTheMeal = String.Join(", ", FoodName.Select(x => x.Foods.Name));
+        FoodsOfTheMeal = String.Join(" | ", FoodName.Select(x => x.Foods.Name));
 
         return Page();
     }

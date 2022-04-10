@@ -22,7 +22,7 @@ public static class SeedData
             PhoneNumberConfirmed = true
         };
 
-        if (userManager.Users.All(u => u.Id != adminUser.Id))
+        if (userManager.Users.All(um => um.Id != adminUser.Id))
         {
             var user = await userManager.FindByEmailAsync(adminUser.Email);
 

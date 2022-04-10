@@ -9,6 +9,9 @@ public class MyDashboardModel : PageModel
 		_context = context;
 	}
 
+	[Display(Name = "Users Count")]
+	public int UsersCount { get; set; }
+
 	[Display(Name = "TOP 5 Active Users")]
 	public IEnumerable<string> TOPActiveUsers { get; set; }
 
@@ -21,11 +24,20 @@ public class MyDashboardModel : PageModel
 
 	public IActionResult OnGet()
 	{
+		UsersCount = GetUsersCount();
 		TOPActiveUsers = GetTopActiveUsers();
 		TOPFoods = GetTopFood();
 		CountMeals = GetCountMeals();
 
 		return Page();
+	}
+
+	private int GetUsersCount()
+	{
+		var usersRole = _context.Roles.FirstOrDefault(r => r.Name.Equals(Roles.BasicUser.ToString()));
+		var usersCount = _context.UserRoles.Where(uc => uc.RoleId == usersRole.Id).Count();
+
+		return usersCount;
 	}
 
 	private IEnumerable<string> GetTopActiveUsers()
