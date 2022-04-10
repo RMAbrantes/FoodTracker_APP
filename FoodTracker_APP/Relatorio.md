@@ -14,18 +14,19 @@ Criação das tabelas:
 
 Refs and Helpers:
 https://codewithmukesh.com/blog/user-management-in-aspnet-core-mvc/
+https://www.findandsolve.com/articles/cannot-create-dbset-identity-role-because-this-type-is-not-included-in-model-for
+https://stackoverflow.com/questions/54717069/cannot-create-a-dbset-for-identityuser-because-this-type-is-not-included-in-th
+https://chsakell.com/2018/04/28/asp-net-core-identity-series-getting-started/
+https://www.youtube.com/watch?v=E8JaZdtXTBQ
+https://www.w3schools.com/html/html_intro.asp
+
+CsvFile:
+→ Create CsvFile Importer to load info
 https://github.com/MarkPflug/Sylvan.AspNetCore/blob/main/docs/CsvFormatter.md
 https://stackoverflow.com/questions/70677817/uploading-and-handling-csv-file-to-an-asp-net-core-web-api
 https://www.appsloveworld.com/insert-delete-update-records-in-csv-file-asp-net/
 https://www.codegrepper.com/code-examples/csharp/how+to+read+a+csv+file+in+c%23
 https://www.codeproject.com/Articles/685310/Simple-and-Fast-CSV-Library-in-Csharp
-https://www.findandsolve.com/articles/cannot-create-dbset-identity-role-because-this-type-is-not-included-in-model-for
-https://stackoverflow.com/questions/54717069/cannot-create-a-dbset-for-identityuser-because-this-type-is-not-included-in-th
-https://chsakell.com/2018/04/28/asp-net-core-identity-series-getting-started/
-https://www.youtube.com/watch?v=E8JaZdtXTBQ
-
-CsvFile:
-→ Create CsvFile Importer to load info
 
 
 Adding Custom Fields to Identity User:
@@ -53,6 +54,8 @@ CRUD:
 mas apenas nos Details é possível ver o que foi adicionado e não estão associadas as quantidadas)
 
 Dashboard: 
+https://getbootstrap.com/docs/3.4/css/
+
 1. Total Users Nr 
 2. Total Meals
 3. Top 10 Foods

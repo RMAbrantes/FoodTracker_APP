@@ -18,9 +18,9 @@
                 <input asp-for="FavFood.Name" class="form-control" />
                 <span asp-validation-for="FavFood.Name" class="text-danger"></span>
                 </div>
+                <p>Choose an item from the List and write it down on the text box above.</p>
                 <div class="form-group">
-                <label asp-for="Foods" class="control-label"></label>
-                @*<input asp-for="Foods" class="form-control" />*@
+                <label asp-for="Foods" class="control-label"></label>                
                 <select asp-for="Foods" class ="form-control" asp-items="Model.Foods"></select>                
             </div>            
             <div class="form-group">

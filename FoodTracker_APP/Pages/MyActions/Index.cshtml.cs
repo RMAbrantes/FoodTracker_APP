@@ -13,6 +13,10 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
+        var csvFile = new CsvFile(_context);
+
+        csvFile.ImportCsv();
+
         Action = await _context.Actions.ToListAsync();
     }
 }
