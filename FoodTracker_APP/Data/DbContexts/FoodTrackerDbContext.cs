@@ -32,17 +32,18 @@ public class FoodTrackerDbContext : IdentityDbContext<User>
         modelBuilder.Entity<User>().Property(p => p.Weight).HasColumnType("decimal(5)");
         modelBuilder.Entity<User>().Property(p => p.FirstName).HasMaxLength(255);
         modelBuilder.Entity<User>().Property(p => p.LastName).HasMaxLength(255);
-
-        //FK
+                //FK
         modelBuilder.Entity<FoodAction>().HasKey(fa => new { fa.ActionId, fa.FoodId });
         modelBuilder.Entity<FoodMeal>().HasKey(fm => new { fm.FoodId, fm.MealId });
 
 
-        modelBuilder.HasDefaultSchema("Identity");
+        //TableNames change  
+        //sets a schema for the database.
+        modelBuilder.HasDefaultSchema("Identity");        
         modelBuilder.Entity<User>(entity =>
         {
-            entity.ToTable(name: "User");
-        });
+            entity.ToTable(name: "User");        });
+        
         modelBuilder.Entity<IdentityRole>(entity =>
         {
             entity.ToTable(name: "Role");
