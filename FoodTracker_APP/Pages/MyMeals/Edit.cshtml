@@ -28,15 +28,11 @@
                 <label asp-for="Meal.EndMeal" class="control-label"></label>
                 <input asp-for="Meal.EndMeal" class="form-control" />
                 <span asp-validation-for="Meal.EndMeal" class="text-danger"></span>
+            </div>           
+            <div class="form-group">
+                <label asp-for="SelectedFoods" class="control-label"></label>
+                <select asp-for="SelectedFoods" class ="form-control" asp-items="Model.Foods"></select>                
             </div>
-           @* @foreach ()
-            {
-                <div class="form-group">
-                <label asp-for="Meal.Foodmeals" class="control-label"></label>
-                <input asp-for="Meal.Foodmeals" class="form-control" />
-                <span asp-validation-for="Meal.Foodmeals" class="text-danger"></span>
-            </div>
-            }*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -11,7 +11,8 @@ public class DetailsModel : PageModel
 
     public Meal Meal { get; set; }
 
-    public List<FoodMeal> FoodByMealById { get; set; }
+    public List<FoodMeal> FoodName { get; set; }
+
     public string FoodsOfTheMeal { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
@@ -28,8 +29,8 @@ public class DetailsModel : PageModel
             return NotFound();
         }
 
-        FoodByMealById = await _context.FoodMeals.Include(ic => ic.Foods).Where(fa => fa.MealId == id).ToListAsync();
-        FoodsOfTheMeal = String.Join(", ", FoodByMealById.Select(x => x.Foods.Name));
+        FoodName = await _context.FoodMeals.Include(ic => ic.Foods).Where(fa => fa.MealId == id).ToListAsync();
+        FoodsOfTheMeal = String.Join(", ", FoodName.Select(x => x.Foods.Name));
 
         return Page();
     }

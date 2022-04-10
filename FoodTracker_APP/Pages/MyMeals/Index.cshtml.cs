@@ -15,12 +15,7 @@ public class IndexModel : PageModel
     {
         var user = await _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefaultAsync();
 
-        Meal = await _context.Meals.Where(m => m.User == user).ToListAsync();
-        //Include(f => f.Food)
-        foreach (var meal in Meal)
-        {
-            var FoodMealTemp = await _context.FoodMeals.Where(fm => fm.MealId == meal.Id).ToListAsync();
-            //meal.Foodmeals = FoodMealTemp.ToArray(); 
-        }         
+        Meal = await _context.Meals.Where(m => m.User == user).ToListAsync();      
+            
     }
 }

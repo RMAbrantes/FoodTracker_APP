@@ -12,8 +12,23 @@ public class EditModel : PageModel
     [BindProperty]
     public Meal Meal { get; set; }
 
+    [BindProperty]
+    public int[] SelectedFoods { get; set; }
+
+    public SelectList Foods { get; set; }
+
+    public SelectList Categories { get; set; }
+
+    public List<FoodMeal> FoodName { get; set; }
+
+    public string FoodsOfTheMeal { get; set; }
+
     public async Task<IActionResult> OnGetAsync(int? id)
     {
+        Foods = new SelectList(_context.Foods, nameof(Category.Id), nameof(Category.Name));
+
+        Categories = new SelectList(_context.Categories, nameof(Category.Id), nameof(Category.Name));
+
         if (id == null)
         {
             return NotFound();
@@ -25,6 +40,10 @@ public class EditModel : PageModel
         {
             return NotFound();
         }
+
+        FoodName = await _context.FoodMeals.Include(ic => ic.Foods).Where(fa => fa.MealId == id).ToListAsync();
+        FoodsOfTheMeal = String.Join(", ", FoodName.Select(x => x.Foods.Name));
+
         return Page();
     }
 
@@ -32,6 +51,10 @@ public class EditModel : PageModel
     // For more details, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
+        var user = _context.Users.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
+
+        Meal.User = user;
+
         if (!ModelState.IsValid)
         {
             return Page();
@@ -39,7 +62,7 @@ public class EditModel : PageModel
 
         _context.Attach(Meal).State = EntityState.Modified;
 
-        try
+        /*try
         {
             await _context.SaveChangesAsync();
         }
@@ -53,7 +76,20 @@ public class EditModel : PageModel
             {
                 throw;
             }
+        }*/
+
+       
+        await _context.SaveChangesAsync();
+
+        //addinf foods consumed
+        foreach (var item in SelectedFoods)
+        {
+            //TODO Quantity and QuantityType
+            FoodMeal foodMeal = new FoodMeal() { MealId = Meal.Id, FoodId = item, Quantity = 0, QuantityTypes = _context.QuantityTypes.Where(x => x.Id == 1).First() };
+            _context.FoodMeals.Add(foodMeal);
         }
+
+        await _context.SaveChangesAsync();
 
         return RedirectToPage("./Index");
     }

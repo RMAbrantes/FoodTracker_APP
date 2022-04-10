@@ -1,8 +1,7 @@
 ﻿namespace FoodTracker_APP.Data.Entities;
 
 public class FoodMeal
-{
-    //public FoodMealId { get; set; }
+{    
     public Food Foods { get; set; }
     public Meal Meals { get; set; }
 
@@ -14,8 +13,7 @@ public class FoodMeal
     public QuantityType QuantityTypes { get; set; }
 
     [Required]
-    public decimal Quantity { get; set; } //quantity ou Portion?
-
+    public decimal Quantity { get; set; }
 }
 
 
